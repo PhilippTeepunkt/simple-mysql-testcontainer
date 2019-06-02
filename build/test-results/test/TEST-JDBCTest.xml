@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JDBCTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-06-02T22:31:15" hostname="Tab01" time="51.523">
+  <properties/>
+  <testcase name="testSimpleQuery" classname="JDBCTest" time="51.523"/>
+  <system-out><![CDATA[        ℹ︎ Checking the system...
+        ✔ Docker version should be at least 1.6.0
+        ✔ Docker environment should have more than 2GB free disk space
+]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+</testsuite>
