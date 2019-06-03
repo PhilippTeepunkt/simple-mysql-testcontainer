@@ -15,12 +15,14 @@ public class JDBCTest {
 
     public static final Logger logger = LoggerFactory.getLogger(JDBCTest.class);
 
+    //starts container before tests and stops it afterwards
     @Rule
     public MySQLContainer mySQLContainer =  (MySQLContainer) new MySQLContainer()
-            .withPassword("mysecretpw")
-            .withInitScript("init.sql")
+            .withPassword("mysecretpw")//set pw
+            .withInitScript("init.sql")//use inital script to add some data to database
             .withLogConsumer(new Slf4jLogConsumer(logger));
 
+    // test logic / test JDBC Class
     @Test
     public void testSimpleQuery() {
 
@@ -29,7 +31,7 @@ public class JDBCTest {
         String result2 = "";
 
         try
-        {
+        {   //use tescontainer functions(dynmaic port mapping ....)
             JDBC jdbc = new JDBC(mySQLContainer.getJdbcUrl(),mySQLContainer.getUsername(),mySQLContainer.getPassword());
 
             resultSet = jdbc.submitQuery("SELECT * FROM testtable;");
@@ -47,6 +49,7 @@ public class JDBCTest {
             logger.debug(exception.getMessage());
         }
 
+	//comparison / results check
         assertEquals("Testcontainer",result1);
         assertEquals("Manfred",result2);
 
